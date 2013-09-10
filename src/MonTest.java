@@ -9,7 +9,13 @@ public class MonTest extends TestCase{
 	public void test1()
 	{
 		Yinsh y = new Yinsh();
-		assertTrue((y.current_color()) == Yinsh.color.WHITE);
+		Yinsh.color col = y.current_color();
+		assertTrue((col == Yinsh.color.WHITE) || (col == Yinsh.color.BLACK));
+	}
+	
+	public void test2()
+	{
+		
 	}
 
 

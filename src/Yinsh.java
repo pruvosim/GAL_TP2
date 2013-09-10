@@ -16,8 +16,8 @@ public class Yinsh {
 	public color current_color()
 	{
 		Random rand = new Random();
-		int r = rand.nextInt(2);
-		if(r==0) return color.WHITE;
+		int r = Math.abs(rand.nextInt(2));
+		if(r==1) return color.WHITE;
 		else return color.BLACK;
 	}
 
