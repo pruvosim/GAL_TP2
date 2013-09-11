@@ -9,6 +9,7 @@ public class AllTests {
 		TestSuite suite = new TestSuite("Mes tests");
 		
 		suite.addTest(new TestSuite(MonTest.class));
+		suite.addTest(new TestSuite(TestMarkers.class));
 		return suite;
 	}
 	

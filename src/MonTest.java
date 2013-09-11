@@ -115,7 +115,6 @@ public class MonTest extends TestCase{
 		
 		assertTrue((y.isInitialized()) == true);
 		
-		
 	}
 
 
