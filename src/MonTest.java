@@ -97,6 +97,26 @@ public class MonTest extends TestCase{
 		}
 		
 	}
+	
+	public void testIsInitialized()
+	{
+		Yinsh y = new Yinsh();
+		
+		y.put_ring('A', 3, Yinsh.color.BLACK);
+		y.put_ring('D', 1, Yinsh.color.WHITE);
+		y.put_ring('A', 7, Yinsh.color.BLACK);
+		y.put_ring('D', 3, Yinsh.color.WHITE);
+		y.put_ring('C', 1, Yinsh.color.BLACK);
+		y.put_ring('C', 3, Yinsh.color.WHITE);
+		y.put_ring('B', 4, Yinsh.color.BLACK);
+		y.put_ring('A', 5, Yinsh.color.WHITE);
+		y.put_ring('C', 2, Yinsh.color.BLACK);
+		y.put_ring('B', 3, Yinsh.color.WHITE);
+		
+		assertTrue((y.isInitialized) == true);
+		
+		
+	}
 
 
 

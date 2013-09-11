@@ -51,5 +51,6 @@ public class Yinsh {
 		derniere_couleur_jouee = color;
 		
 	}
+	
 
 }
