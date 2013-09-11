@@ -52,5 +52,20 @@ public class Yinsh {
 		
 	}
 	
+	
+	public boolean isInitialized()
+	{
+		int nb_anneaux_blancs = 0, nb_anneaux_noirs = 0;
+		
+		for (int i = 0; i < 11; i++) {
+			for (int j = 0; j < 11; j++) {
+				if(plateau[i][j] == color.BLACK) nb_anneaux_noirs++;
+				if(plateau[i][j] == color.WHITE) nb_anneaux_blancs++;
+			}
+		}
+		
+		if((nb_anneaux_blancs == 5) && (nb_anneaux_noirs == 5)) return true;
+		else return false;
+	}
 
 }

@@ -98,7 +98,7 @@ public class MonTest extends TestCase{
 		
 	}
 	
-	public void testIsInitialized()
+	public void testIsInitialized() throws Exception
 	{
 		Yinsh y = new Yinsh();
 		
@@ -113,7 +113,7 @@ public class MonTest extends TestCase{
 		y.put_ring('C', 2, Yinsh.color.BLACK);
 		y.put_ring('B', 3, Yinsh.color.WHITE);
 		
-		assertTrue((y.isInitialized) == true);
+		assertTrue((y.isInitialized()) == true);
 		
 		
 	}
