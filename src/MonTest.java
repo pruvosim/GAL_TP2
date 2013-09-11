@@ -79,6 +79,24 @@ public class MonTest extends TestCase{
 		}
 		
 	}
+	
+	public void testExceptionMemeIntersection()
+	{
+		Yinsh y = new Yinsh();
+		
+		try {
+			
+			y.put_ring('B',3,Yinsh.color.WHITE);
+			y.put_ring('B',3,Yinsh.color.BLACK);
+			assertTrue(false);
+			
+		} catch (Exception e) {
+		
+			assertTrue(true);
+			
+		}
+		
+	}
 
 
 
