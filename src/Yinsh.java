@@ -43,6 +43,8 @@ public class Yinsh {
 			throw new Exception();
 		}*/
 		
+		if(plateau[column][line-1] != null) throw new Exception();
+		
 		if(color == derniere_couleur_jouee) throw new Exception();
 		
 		plateau[column][line-1] = color;
