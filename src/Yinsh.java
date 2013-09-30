@@ -9,6 +9,7 @@ public class Yinsh {
 	}
 	
 	public color[][] plateau;
+	public color[][] plateauMarker;
 	public color derniere_couleur_jouee = null;
 	
 	public Yinsh()
@@ -18,6 +19,13 @@ public class Yinsh {
 		for (int i = 0; i < 11; i++) {
 			for (int j = 0; j < 11; j++) {
 				plateau[i][j] = null;
+			}
+		}
+		
+		plateauMarker = new color[11][11];
+		for (int i = 0; i < 11; i++) {
+			for (int j = 0; j < 11; j++) {
+				plateauMarker[i][j] = null;
 			}
 		}
 	}
@@ -66,6 +74,37 @@ public class Yinsh {
 		
 		if((nb_anneaux_blancs == 5) && (nb_anneaux_noirs == 5)) return true;
 		else return false;
+	}
+	
+	public void put_marker(char col, int line, color color) throws Exception
+	{
+		int column;
+		column = col - 65;
+		
+		//if(plateau[column][line-1] != null) plateauMarker[column][line-1] = color;
+		if(plateau[column][line-1] != plateauMarker[column][line-1]) throw new Exception();
+		if(plateau[column][line-1] == null) throw new Exception();
+		plateauMarker[column][line-1] = color;
+		
+	}
+	
+	public void move_ring(char col_depart, int line_depart, char col_arrivee, int line_arrivee)
+	{
+		int column_depart;
+		column_depart = col_depart - 65;
+		int column_arrivee;
+		column_arrivee = col_arrivee - 65;
+		
+		if(plateauMarker[column_depart][line_depart-1] == plateau[column_depart][line_depart-1])
+		{
+			if(plateau[column_arrivee][line_arrivee-1] == null)
+			{
+				plateau[column_arrivee][line_arrivee-1] = plateau[column_depart][line_depart-1];
+				plateau[column_depart][line_depart-1] = null;
+			}
+			
+			
+		}
 	}
 
 }

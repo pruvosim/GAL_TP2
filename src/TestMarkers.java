@@ -5,22 +5,23 @@ public class TestMarkers extends TestCase{
 	
 	public TestMarkers(String name) {super(name);}
 	
-	public void testPutMarker()
+	public void testPutMarker() throws Exception
 	{
 		Yinsh y = new Yinsh();
 		
-		assertTrue((y.put_marker('D',2,Yinsh.color.BLACK)) == true);
+		y.put_marker('D',2,Yinsh.color.BLACK);
+		assertTrue(y.plateauMarker[3][1] == Yinsh.color.BLACK);
 	}
 	
 	
-	public void testMoveRing()
+	public void testMoveRing() throws Exception
 	{
 		Yinsh y = new Yinsh();
 		
 		y.put_ring('D', 2, Yinsh.color.BLACK);
 		y.put_marker('D',2,Yinsh.color.BLACK);
 		y.move_ring('D',2,'D',5);
-		assertTrue(plateau[3][4] == Yinsh.color.BLACK);
+		assertTrue(y.plateau[3][4] == Yinsh.color.BLACK);
 	}
 	
 	public void testMauvaisMarqueur()
