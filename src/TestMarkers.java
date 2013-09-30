@@ -9,6 +9,9 @@ public class TestMarkers extends TestCase{
 	{
 		Yinsh y = new Yinsh();
 		
+		//On place cet anneau selon le schema
+		y.put_ring('D', 2, Yinsh.color.BLACK);
+		
 		y.put_marker('D',2,Yinsh.color.BLACK);
 		assertTrue(y.plateauMarker[3][1] == Yinsh.color.BLACK);
 	}

@@ -80,10 +80,10 @@ public class Yinsh {
 	{
 		int column;
 		column = col - 65;
+
 		
-		//if(plateau[column][line-1] != null) plateauMarker[column][line-1] = color;
-		if(plateau[column][line-1] != plateauMarker[column][line-1]) throw new Exception();
 		if(plateau[column][line-1] == null) throw new Exception();
+		if(plateau[column][line-1] != color) throw new Exception();
 		plateauMarker[column][line-1] = color;
 		
 	}
