@@ -10,6 +10,7 @@ public class AllTests {
 		
 		suite.addTest(new TestSuite(MonTest.class));
 		suite.addTest(new TestSuite(TestMarkers.class));
+		suite.addTest(new TestSuite(TestDeplacementsAnneaux.class));
 		return suite;
 	}
 	
