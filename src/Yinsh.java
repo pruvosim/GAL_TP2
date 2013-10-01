@@ -12,8 +12,14 @@ public class Yinsh {
 	public color[][] plateauMarker;
 	public color derniere_couleur_jouee = null;
 	
+	public int nb_point_noir;
+	public int nb_point_blanc;
+	
 	public Yinsh()
 	{
+		nb_point_blanc = 0 ;
+		nb_point_noir = 0 ;
+		
 		//initialisation du plateau
 		plateau = new color[11][11];
 		for (int i = 0; i < 11; i++) {
@@ -114,6 +120,41 @@ public class Yinsh {
 			
 			
 		}
+	}
+	
+	public void remove_row(char col_depart, int line_depart, char col_arrivee, int line_arrivee)
+	{
+		int column_depart;
+		column_depart = col_depart - 65;
+		int column_arrivee;
+		column_arrivee = col_arrivee - 65;
+		
+		int nb_iterations = 0;
+		int nb_marqueurs = 0;
+		
+		if(column_arrivee == column_depart) nb_iterations = line_arrivee - line_depart + 1;
+		else nb_iterations = column_arrivee - column_depart + 1;
+		
+		for (int i = 0; i < nb_iterations; i++) {
+			if(plateauMarker[column_depart + i][line_depart -1 + i] != null) nb_marqueurs ++;
+		}
+		
+		if(nb_marqueurs == nb_iterations)
+		{
+			for (int i = 0; i < nb_iterations; i++) {
+				plateauMarker[column_depart + i][line_depart -1 + i] = null;
+			}
+			System.out.println("Ajout du point");
+			nb_point_noir += 1 ;
+		}
+	}
+	
+	public void remove_ring(char col, int line)
+	{
+		int column;
+		column = col - 65;
+		
+		plateau[column][line -1] = null;
 	}
 
 }
