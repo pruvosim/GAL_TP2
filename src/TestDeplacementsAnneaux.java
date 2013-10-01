@@ -28,5 +28,28 @@ public class TestDeplacementsAnneaux extends TestCase{
 				assertTrue(false);
 			}
 		}
+		
+		public void testSuppresion(){
+			
+			Yinsh y = new Yinsh();
+			
+			try{
+				
+				y.plateau[7][9] = Yinsh.color.BLACK;
+				y.plateauMarker[4][5] = Yinsh.color.BLACK;
+				y.plateauMarker[5][6] = Yinsh.color.BLACK;
+				y.plateauMarker[6][7] = Yinsh.color.BLACK;
+				y.plateauMarker[7][8] = Yinsh.color.BLACK;
+				y.plateauMarker[8][9] = Yinsh.color.BLACK;
+				
+				y.remove_row('E', 6, 'I', 10);
+				y.remove_ring('H', 10);
+				
+				assertTrue(Yinsh.nb_point_noir == 1);
 
+			}catch(Exception e){
+				assertTrue(false);
+			}
+
+		}
 }
