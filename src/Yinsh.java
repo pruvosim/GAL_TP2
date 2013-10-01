@@ -94,29 +94,41 @@ public class Yinsh {
 		
 	}
 	
-	public void move_ring(char col_depart, int line_depart, char col_arrivee, int line_arrivee)
+	public void move_ring(char col_depart, int line_depart, char col_arrivee, int line_arrivee) throws Exception
 	{
 		int column_depart;
 		column_depart = col_depart - 65;
 		int column_arrivee;
 		column_arrivee = col_arrivee - 65;
 		
+		int nb_iterations = 0;
+		int anneau_different_sur_le_chemin = 0;
 		int nb_anneaux_a_retourner = 0;
 		
 		if(plateauMarker[column_depart][line_depart-1] == plateau[column_depart][line_depart-1])
 		{
-			if(plateau[column_arrivee][line_arrivee-1] == null)
-			{
-				plateau[column_arrivee][line_arrivee-1] = plateau[column_depart][line_depart-1];
-				plateau[column_depart][line_depart-1] = null;
-				
-				if(column_depart == column_arrivee) nb_anneaux_a_retourner = line_arrivee - line_depart;
-				
-				for (int i = 0; i < nb_anneaux_a_retourner; i++) {
-					if(plateauMarker[column_depart][line_depart + i] == Yinsh.color.WHITE) plateauMarker[column_depart][line_depart + i] = Yinsh.color.BLACK;
-					else plateauMarker[column_depart][line_depart + i] = Yinsh.color.WHITE ;
-				}
+			
+			if(column_arrivee == column_depart) nb_iterations = line_arrivee - line_depart + 1;
+			else nb_iterations = column_arrivee - column_depart + 1;
+			
+			for (int i = 0; i < nb_iterations; i++) {
+				if(plateau[column_depart + i][line_depart -1 + i] != plateau[column_depart][line_depart -1] && plateau[column_depart + i][line_depart -1 + i] != null) anneau_different_sur_le_chemin = 1;
 			}
+			
+			if(anneau_different_sur_le_chemin == 1) throw new Exception();
+			
+				if(plateau[column_arrivee][line_arrivee-1] == null)
+				{
+					plateau[column_arrivee][line_arrivee-1] = plateau[column_depart][line_depart-1];
+					plateau[column_depart][line_depart-1] = null;
+					
+					if(column_depart == column_arrivee) nb_anneaux_a_retourner = line_arrivee - line_depart;
+					
+					for (int i = 0; i < nb_anneaux_a_retourner; i++) {
+						if(plateauMarker[column_depart][line_depart + i] == Yinsh.color.WHITE) plateauMarker[column_depart][line_depart + i] = Yinsh.color.BLACK;
+						else plateauMarker[column_depart][line_depart + i] = Yinsh.color.WHITE ;
+					}
+				}
 			
 			
 		}
@@ -144,7 +156,6 @@ public class Yinsh {
 			for (int i = 0; i < nb_iterations; i++) {
 				plateauMarker[column_depart + i][line_depart -1 + i] = null;
 			}
-			System.out.println("Ajout du point");
 			nb_point_noir += 1 ;
 		}
 	}

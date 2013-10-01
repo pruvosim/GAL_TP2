@@ -46,4 +46,11 @@ public class TestDeplacementsAnneaux extends TestCase{
 		assertTrue(y.nb_point_noir == 1);
 
 	}
+	
+	public void testDeplacementsPossibles()
+	{
+		Yinsh y = new Yinsh();
+		
+		assertTrue(y.deplacements() != null);
+	}
 }
