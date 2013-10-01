@@ -95,12 +95,21 @@ public class Yinsh {
 		int column_arrivee;
 		column_arrivee = col_arrivee - 65;
 		
+		int nb_anneaux_a_retourner = 0;
+		
 		if(plateauMarker[column_depart][line_depart-1] == plateau[column_depart][line_depart-1])
 		{
 			if(plateau[column_arrivee][line_arrivee-1] == null)
 			{
 				plateau[column_arrivee][line_arrivee-1] = plateau[column_depart][line_depart-1];
 				plateau[column_depart][line_depart-1] = null;
+				
+				if(column_depart == column_arrivee) nb_anneaux_a_retourner = line_arrivee - line_depart;
+				
+				for (int i = 0; i < nb_anneaux_a_retourner; i++) {
+					if(plateauMarker[column_depart][line_depart + i] == Yinsh.color.WHITE) plateauMarker[column_depart][line_depart + i] = Yinsh.color.BLACK;
+					else plateauMarker[column_depart][line_depart + i] = Yinsh.color.WHITE ;
+				}
 			}
 			
 			
