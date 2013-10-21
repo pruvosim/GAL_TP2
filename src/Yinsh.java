@@ -6,7 +6,7 @@ public class Yinsh {
 
 	public enum color{
 		BLACK,
-		WHITE;
+		WHITE
 	}
 
 	public color[][] plateau;
@@ -86,17 +86,14 @@ public class Yinsh {
 	public boolean isInitialized()
 	{
 		int nb_anneaux_blancs = 0, nb_anneaux_noirs = 0;
-
 		for (int i = 0; i < 11; i++) {
 			for (int j = 0; j < 11; j++) {
 				if(plateau[i][j] == color.BLACK) nb_anneaux_noirs++;
 				if(plateau[i][j] == color.WHITE) nb_anneaux_blancs++;
 			}
 		}
-
-		if((nb_anneaux_blancs == 5) && (nb_anneaux_noirs == 5)) return true;
-		else return false;
-	}
+        return (nb_anneaux_blancs == 5) && (nb_anneaux_noirs == 5);
+    }
 
 	public void put_marker(char col, int line, color color) throws Exception
 	{
@@ -119,7 +116,7 @@ public class Yinsh {
 		int column_arrivee;
 		column_arrivee = col_arrivee - 65;
 
-		int nb_iterations = 0;
+		int nb_iterations;
 		int anneau_different_sur_le_chemin = 0;
 		int nb_anneaux_a_retourner = 0;
 
@@ -159,14 +156,14 @@ public class Yinsh {
 		int column_arrivee;
 		column_arrivee = col_arrivee - 65;
 
-		int nb_iterations = 0;
+		int nb_iterations;
 		int nb_marqueurs = 0;
 
 		if(column_arrivee == column_depart) nb_iterations = line_arrivee - line_depart + 1;
 		else nb_iterations = column_arrivee - column_depart + 1;
 
 		if (nb_iterations > 5){
-			System.out.println("Il y a un alignement de plus de 5 marqueurs. Veuillez préciser quels marqueurs sont à enlever!");
+			System.out.println("Il y a un alignement de plus de 5 marqueurs. Veuillez prï¿½ciser quels marqueurs sont ï¿½ enlever!");
 			throw new Exception();
 		}
 
@@ -194,7 +191,7 @@ public class Yinsh {
 		else white_rings_removed += 1 ;
 	}
 
-	public String[] deplacements(char column, int line, color couleur){
+	public String[] deplacements(char column, int line){
 
 		int col = column - 65;
 		int l = line - 1;
@@ -345,79 +342,11 @@ public class Yinsh {
 	}
 
 	public char convert_lettre(int c){
-		if(c == 0){
-			return 'A';
-		}
-		if(c == 1){
-			return 'B';
-		}
-		if(c == 2){
-			return 'C';
-		}
-		if(c == 3){
-			return 'D';
-		}
-		if(c == 4){
-			return 'E';
-		}
-		if(c == 5){
-			return 'F';
-		}
-		if(c == 6){
-			return 'G';
-		}
-		if(c == 7){
-			return 'H';
-		}
-		if(c == 8){
-			return 'I';
-		}
-		if(c == 9){
-			return 'J';
-		}
-		if(c == 10){
-			return 'K';
-		}
-		return 0;
-
+        return Character.toChars(c + 65)[0];
 	}
 
 	public String convert_indice(int c){
-		if(c == 0){
-			return "1";
-		}
-		if(c == 1){
-			return "2";
-		}
-		if(c == 2){
-			return "3";
-		}
-		if(c == 3){
-			return "4";
-		}
-		if(c == 4){
-			return "5";
-		}
-		if(c == 5){
-			return "6";
-		}
-		if(c == 6){
-			return "7";
-		}
-		if(c == 7){
-			return "8";
-		}
-		if(c == 8){
-			return "9";
-		}
-		if(c == 9){
-			return "10";
-		}
-		if(c == 10){
-			return "11";
-		}
-		return "";
-
+        return Integer.toString(c+1);
 	}
 
 	public String[] concatenation_tab(int[] col, int[] ligne){
@@ -449,7 +378,7 @@ public class Yinsh {
 
 	}
 
-	public int alignementsPossibles(char col, int line, color color)
+	public int alignementsPossibles(char col, int line)
 	{
 
 		int colonne;
@@ -471,9 +400,9 @@ public class Yinsh {
 
 		//Recherche d'alignements
 
-		boolean retour = false;
+		boolean retour;
 		int same_color_marker = 0;
-		int i = 1;
+		int i;
 		String alignement_possible = "";
 
 		///////////////////////////////////////////////////////////////////////VERTICAL////////////////////////////////////////////////////////////////////////
@@ -573,7 +502,7 @@ public class Yinsh {
 		}
 
 		///////////////////////////////////////////////////////////////////////DIAGONALE DROITE////////////////////////////////////////////////////////////////////////
-		if(vertical ==1)
+		if(diagonale_droite ==1)
 		{
 			//same_color_marker = 0;
 			i = 1;
@@ -606,7 +535,7 @@ public class Yinsh {
 
 		//System.out.println("Same color Marker : " + same_color_marker);
 		if(same_color_marker >= 5) System.out.println(alignement_possible); retour = true;
-		if(retour == true) return 1;
+		if(retour) return 1;
 
 		return 0;
 	}
@@ -617,11 +546,11 @@ public class Yinsh {
 		if(marqueurs_utilises == 51)
 		{
 			if(marqueurs_blancs > marqueurs_noirs){
-				System.out.println("Le joueur blanc a gagné, il a plus d'anneaux");
+				System.out.println("Le joueur blanc a gagnï¿½, il a plus d'anneaux");
 				return true;
 			}
 			else if(marqueurs_noirs > marqueurs_blancs){
-				System.out.println("Le joueur noir a gagné, il a plus d'anneaux");
+				System.out.println("Le joueur noir a gagnï¿½, il a plus d'anneaux");
 				return true;
 			}
 			else

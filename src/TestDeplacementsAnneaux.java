@@ -63,7 +63,7 @@ public class TestDeplacementsAnneaux extends TestCase{
 		y.plateauMarker[8][7] = Yinsh.color.WHITE;
 		
 		
-		assertTrue(y.deplacements('E',4,Yinsh.color.BLACK) != null);
+		assertTrue(y.deplacements('E',4) != null);
 	}
 	
 	public void testBlitz() throws Exception
@@ -79,7 +79,7 @@ public class TestDeplacementsAnneaux extends TestCase{
 		y.remove_row('E', 6, 'I', 10);
 		y.remove_ring('H', 10);
 		
-		assertTrue(y.win() == true);
+		assertTrue(y.win());
 		
 	}
 	
@@ -128,9 +128,9 @@ public class TestDeplacementsAnneaux extends TestCase{
 		
 		y.plateauMarker[4][6] = Yinsh.color.BLACK;
 		
-		y.alignementsPossibles('D', 6, Yinsh.color.BLACK);
+		y.alignementsPossibles('D', 6);
 		
-		assertTrue(y.alignementsPossibles('D', 6, Yinsh.color.BLACK) == 1);
+		assertTrue(y.alignementsPossibles('D', 6) == 1);
 
 	}
 	
@@ -168,6 +168,6 @@ public class TestDeplacementsAnneaux extends TestCase{
 		y.put_marker('A', 5, Yinsh.color.BLACK);
 		y.put_marker('A', 1, Yinsh.color.BLACK);
 		
-		assertTrue(y.win_limite_anneaux() == true);
+		assertTrue(y.win_limite_anneaux());
 	}
 }
