@@ -169,181 +169,76 @@ public class Yinsh {
 		plateau[column][line -1] = null;
 	}
 	
-	public String[] deplacements(char column, int line, color couleur){
-		
+	public ArrayList deplacements(char column, int line, color color)
+	{
 		int col = column - 65;
 		int l = line - 1;
 		int i;
-		
 		ArrayList<Integer> colonne = new ArrayList<Integer>();
 		ArrayList<Integer> ligne = new ArrayList<Integer>();
+		color c;
+		if(color == Yinsh.color.BLACK){
+			c = Yinsh.color.WHITE;
+		}
+		else{
+			c = Yinsh.color.BLACK;	
+		}
 		
 		i = 1;
-		while( (l-i > -1) && (plateau[col][l-i] == null) ){
-			if(plateauMarker[col][l-i] == null){
-				colonne.add(col);
-				ligne.add(l-i);
+		while((plateau[col][l-i] != c) && (l-i >= 0)){
+			if(plateau[col][l-i] != color){
+				colonne.add(col + 65);
+				ligne.add(l-i + 1);
 			}
 			i++;
 		}
 		
 		i = 1;
-		while( (l+i < 11) && (plateau[col][l+i] == null) ){
-			if(plateauMarker[col][l+i] == null){
-			colonne.add(col);
-			ligne.add(l+i);
+		while(plateau[col][l+i] != c){
+			if(plateau[col][l+i] != color){
+				colonne.add(col + 65);
+				ligne.add(l+i + 1);
 			}
 			i++;
 		}
 		
 		i = 1;
-		while( (col-i > -1) && (plateau[col-i][l] == null) ){
-			if(plateauMarker[col-i][l] == null){
-				colonne.add(col-i);
-			ligne.add(l);
+		while(plateau[col+i][l] != c){
+			if(plateau[col+i][l] != color){
+				colonne.add(col+i + 65);
+				ligne.add(l + 1);
+			}
+			i++;
+		}
+		i = 1;
+		while(plateau[col-i][l] != c){
+			if(plateau[col-i][l] != color){
+				colonne.add(col-i + 65);
+				ligne.add(l + 1);
+			}
+			i++;
+		}
+		
+		
+		i = 1;
+		while(plateau[col+i][l+i] != c){
+			if(plateau[col+i][l+i] != color){
+				colonne.add(col+i + 65);
+				ligne.add(l+i + 1);
 			}
 			i++;
 		}
 		
 		i = 1;
-		while( (col+i < 11) && (plateau[col+i][l] == null) ){
-			if(plateauMarker[col+i][l] == null){
-			colonne.add(col+i);
-			ligne.add(l);
+		while(plateau[col-i][l-i] != c){
+			if(plateau[col-i][l-i] != color){
+				colonne.add(col-i + 65);
+				ligne.add(l-i + 1);
 			}
 			i++;
 		}
 		
-		i = 1;
-		while( (l-i > -1) && (col-i > -1) && (plateau[col-i][l-i] == null) ){
-			if(plateauMarker[col-i][l-i] == null){
-			colonne.add(col-i);
-			ligne.add(l-i);
-			}
-			i++;
-		}
-		
-		i = 1;
-		while( (l+i < 11) && (col+i < 11) && (plateau[col+i][l+i] == null) ){
-			if(plateauMarker[col+i][l+i] == null){
-			colonne.add(col+i);
-			ligne.add(l+i);
-			}
-			i++;
-			
-		}
-		
-		int[] colonne_tab = conv_int_liste_tableau(colonne);
-		int[] ligne_tab = conv_int_liste_tableau(ligne);
-		String[] solution = concatenation_tab(colonne_tab, ligne_tab);
-
-		for(i = 0; i < solution.length; i++){
-			System.out.println(solution[i] + " ");
-		}
-		
-		return solution;
-		
-	}
-	
-	public int[] conv_int_liste_tableau(ArrayList<Integer> A){
-		
-		int i;
-		int[] tab = new int[A.size()];
-		for(i = 0; i < A.size(); i++){
-			tab[i] = A.get(i);
-		}
-		
-		return tab;
-	}
-	
-	public char convert_lettre(int c){
-		if(c == 0){
-			return 'A';
-		}
-		if(c == 1){
-			return 'B';
-		}
-		if(c == 2){
-			return 'C';
-		}
-		if(c == 3){
-			return 'D';
-		}
-		if(c == 4){
-			return 'E';
-		}
-		if(c == 5){
-			return 'F';
-		}
-		if(c == 6){
-			return 'G';
-		}
-		if(c == 7){
-			return 'H';
-		}
-		if(c == 8){
-			return 'I';
-		}
-		if(c == 9){
-			return 'J';
-		}
-		if(c == 10){
-			return 'K';
-		}
-		return 0;
-		
-	}
-	
-	public String convert_indice(int c){
-		if(c == 0){
-			return "1";
-		}
-		if(c == 1){
-			return "2";
-		}
-		if(c == 2){
-			return "3";
-		}
-		if(c == 3){
-			return "4";
-		}
-		if(c == 4){
-			return "5";
-		}
-		if(c == 5){
-			return "6";
-		}
-		if(c == 6){
-			return "7";
-		}
-		if(c == 7){
-			return "8";
-		}
-		if(c == 8){
-			return "9";
-		}
-		if(c == 9){
-			return "10";
-		}
-		if(c == 10){
-			return "11";
-		}
-		return "";
-		
-	}
-	
-	public String[] concatenation_tab(int[] col, int[] ligne){
-		
-		String[] tab = new String[col.length];
-		char c;
-		String l;
-		int i;
-		for(i = 0; i < col.length; i++){
-			c = convert_lettre(col[i]);
-			l = convert_indice(ligne[i]);
-			tab[i] = c + l;
-		}
-		return tab;
+		return colonne;
 	}
 
 }

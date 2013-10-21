@@ -50,19 +50,14 @@ public class TestDeplacementsAnneaux extends TestCase{
 	public void testDeplacementsPossibles()
 	{
 		Yinsh y = new Yinsh();
-		y.plateau[3][2] = Yinsh.color.BLACK;
-		y.plateau[1][3] = Yinsh.color.WHITE;
-		y.plateauMarker[4][2] = Yinsh.color.WHITE;
-		y.plateauMarker[4][8] = Yinsh.color.WHITE;
-		y.plateauMarker[4][7] = Yinsh.color.BLACK;
-		y.plateauMarker[4][6] = Yinsh.color.WHITE;
-		y.plateauMarker[4][5] = Yinsh.color.WHITE;
-		y.plateauMarker[4][4] = Yinsh.color.BLACK;
-		y.plateauMarker[2][3] = Yinsh.color.BLACK;
-		y.plateauMarker[7][6] = Yinsh.color.WHITE;
-		y.plateauMarker[8][7] = Yinsh.color.WHITE;
 		
+		y.plateau[7][9] = Yinsh.color.BLACK;
+		y.plateauMarker[4][5] = Yinsh.color.BLACK;
+		y.plateauMarker[5][6] = Yinsh.color.BLACK;
+		y.plateauMarker[6][7] = Yinsh.color.BLACK;
+		y.plateauMarker[7][8] = Yinsh.color.BLACK;
+		y.plateauMarker[8][9] = Yinsh.color.BLACK;
 		
-		assertTrue(y.deplacements('E',4,Yinsh.color.BLACK) != null);
+		assertTrue(y.deplacements('E', 6, Yinsh.color.BLACK) != null);
 	}
 }
