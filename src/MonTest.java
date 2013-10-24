@@ -17,7 +17,7 @@ public class MonTest extends TestCase{
 	{
 		//putRing(String col, int line, Yinsh.Color Color)
 		Yinsh y = new Yinsh();
-		y.putRing('A', 1, Yinsh.Color.WHITE);
+		y.putRing(new Coordinates('A', 1), Yinsh.Color.WHITE);
 		assertTrue(y.m_plateau[0][0] == Yinsh.Color.WHITE);
 	}
 	
@@ -39,7 +39,7 @@ public class MonTest extends TestCase{
 		assertTrue(nbAnneaux == 0);
 		
 		//On place un anneau
-		y.putRing('A', 1, Yinsh.Color.WHITE);
+		y.putRing(new Coordinates('A', 1), Yinsh.Color.WHITE);
 		
 		assertTrue(y.m_plateau[0][0] == Yinsh.Color.WHITE);
 	}
@@ -51,7 +51,7 @@ public class MonTest extends TestCase{
 		
 		try {
 			
-			y.putRing('C', 1, Yinsh.Color.WHITE);
+			y.putRing(new Coordinates('C', 1), Yinsh.Color.WHITE);
 			
 		} catch (Exception e) {
 			
@@ -68,8 +68,8 @@ public class MonTest extends TestCase{
 		
 		try {
 			
-			y.putRing('B', 3, Yinsh.Color.WHITE);
-			y.putRing('B', 4, Yinsh.Color.WHITE);
+			y.putRing(new Coordinates('B', 3), Yinsh.Color.WHITE);
+			y.putRing(new Coordinates('B', 4), Yinsh.Color.WHITE);
 			assertTrue(false);
 			
 		} catch (Exception e) {
@@ -86,8 +86,8 @@ public class MonTest extends TestCase{
 		
 		try {
 			
-			y.putRing('B', 3, Yinsh.Color.WHITE);
-			y.putRing('B', 3, Yinsh.Color.BLACK);
+			y.putRing(new Coordinates('B', 3), Yinsh.Color.WHITE);
+			y.putRing(new Coordinates('B', 3), Yinsh.Color.BLACK);
 			assertTrue(false);
 			
 		} catch (Exception e) {
@@ -102,16 +102,16 @@ public class MonTest extends TestCase{
 	{
 		Yinsh y = new Yinsh();
 		
-		y.putRing('A', 3, Yinsh.Color.BLACK);
-		y.putRing('D', 1, Yinsh.Color.WHITE);
-		y.putRing('A', 7, Yinsh.Color.BLACK);
-		y.putRing('D', 3, Yinsh.Color.WHITE);
-		y.putRing('C', 1, Yinsh.Color.BLACK);
-		y.putRing('C', 3, Yinsh.Color.WHITE);
-		y.putRing('B', 4, Yinsh.Color.BLACK);
-		y.putRing('A', 5, Yinsh.Color.WHITE);
-		y.putRing('C', 2, Yinsh.Color.BLACK);
-		y.putRing('B', 3, Yinsh.Color.WHITE);
+		y.putRing(new Coordinates('A', 3), Yinsh.Color.BLACK);
+		y.putRing(new Coordinates('D', 1), Yinsh.Color.WHITE);
+		y.putRing(new Coordinates('A', 7), Yinsh.Color.BLACK);
+		y.putRing(new Coordinates('D', 3), Yinsh.Color.WHITE);
+		y.putRing(new Coordinates('C', 1), Yinsh.Color.BLACK);
+		y.putRing(new Coordinates('C', 3), Yinsh.Color.WHITE);
+		y.putRing(new Coordinates('B', 4), Yinsh.Color.BLACK);
+		y.putRing(new Coordinates('A', 5), Yinsh.Color.WHITE);
+		y.putRing(new Coordinates('C', 2), Yinsh.Color.BLACK);
+		y.putRing(new Coordinates('B', 3), Yinsh.Color.WHITE);
 		
 		assertTrue((y.isInitialized()));
 		

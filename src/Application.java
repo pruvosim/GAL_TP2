@@ -1,6 +1,6 @@
 public class Application {
 
-    private static void putRing(Yinsh yinsh)
+    private static void putRing(Yinsh yinsh) throws Exception
     {
         // chaque joueur place ses anneaux
         yinsh.putRing(new Coordinates('B', 1), Yinsh.Color.BLACK);
@@ -15,7 +15,7 @@ public class Application {
         yinsh.putRing(new Coordinates('C', 2), Yinsh.Color.WHITE);
     }
 
-    private static void putMarkerAndMoveRing(Yinsh yinsh)
+    private static void putMarkerAndMoveRing(Yinsh yinsh) throws Exception
     {
         // le joueur noir place un marqueur  et déplace un anneau
         yinsh.putMarker(new Coordinates('J', 8), Yinsh.Color.BLACK);
@@ -46,13 +46,13 @@ public class Application {
         yinsh.moveRing(new Coordinates('F', 8), new Coordinates('E', 8), Yinsh.Color.BLACK);
     }
 
-    private static void removeRowAndRemoveRing(Yinsh yinsh)
+    private static void removeRowAndRemoveRing(Yinsh yinsh) throws Exception
     {
         yinsh.removeRow(new Coordinates('F', 8), new Coordinates('J', 8), Yinsh.Color.BLACK);
         yinsh.removeRing(new Coordinates('B', 1), Yinsh.Color.BLACK);
     }
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
     {
         // le joueur noir commence
         Yinsh yinsh = new Yinsh(Yinsh.Color.BLACK, Yinsh.Type.BLITZ);

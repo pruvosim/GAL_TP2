@@ -10,9 +10,9 @@ public class TestMarkers extends TestCase{
 		Yinsh y = new Yinsh();
 		
 		//On place cet anneau selon le schema
-		y.putRing('D', 2, Yinsh.Color.BLACK);
+		y.putRing(new Coordinates('D', 2), Yinsh.Color.BLACK);
 		
-		y.putMarker('D', 2, Yinsh.Color.BLACK);
+		y.putMarker(new Coordinates('D', 2), Yinsh.Color.BLACK);
 		assertTrue(y.m_plateauMarker[3][1] == Yinsh.Color.BLACK);
 	}
 	
@@ -21,9 +21,9 @@ public class TestMarkers extends TestCase{
 	{
 		Yinsh y = new Yinsh();
 		
-		y.putRing('D', 2, Yinsh.Color.BLACK);
-		y.putMarker('D', 2, Yinsh.Color.BLACK);
-		y.moveRing('D', 2, 'D', 5);
+		y.putRing(new Coordinates('D', 2), Yinsh.Color.BLACK);
+		y.putMarker(new Coordinates('D', 2), Yinsh.Color.BLACK);
+		y.moveRing(new Coordinates('D', 2), new Coordinates('D', 5), Yinsh.Color.BLACK);
 		assertTrue(y.m_plateau[3][4] == Yinsh.Color.BLACK);
 	}
 	
@@ -34,8 +34,8 @@ public class TestMarkers extends TestCase{
 		
 		try{
 			
-			y.putRing('D', 2, Yinsh.Color.BLACK);
-			y.putMarker('D', 2, Yinsh.Color.WHITE);
+			y.putRing(new Coordinates('D', 2), Yinsh.Color.BLACK);
+			y.putMarker(new Coordinates('D', 2), Yinsh.Color.WHITE);
 			assertTrue(false);
 			
 		}catch(Exception e){
@@ -44,7 +44,7 @@ public class TestMarkers extends TestCase{
 		
 		try{
 			
-			y.putMarker('D', 3, Yinsh.Color.BLACK);
+			y.putMarker(new Coordinates('D', 3), Yinsh.Color.BLACK);
 			assertTrue(false);
 			
 		}catch(Exception e){
@@ -61,9 +61,9 @@ public class TestMarkers extends TestCase{
 		
 		try{
 			
-			y.putRing('D', 2, Yinsh.Color.BLACK);
-			y.putMarker('D', 2, Yinsh.Color.WHITE);
-			y.moveRing('D', 2, 'D', 6);
+			y.putRing(new Coordinates('D', 2), Yinsh.Color.BLACK);
+			y.putMarker(new Coordinates('D', 2), Yinsh.Color.WHITE);
+			y.moveRing(new Coordinates('D', 2), new Coordinates('D', 6), Yinsh.Color.BLACK);
 			assertTrue(false);
 			
 		}catch(Exception e){
@@ -79,9 +79,9 @@ public class TestMarkers extends TestCase{
 		
 		try{
 			
-			y.putRing('D', 2, Yinsh.Color.BLACK);
-			y.putMarker('D', 2, Yinsh.Color.WHITE);
-			y.moveRing('D', 2, 'I', 7);
+			y.putRing(new Coordinates('D', 2), Yinsh.Color.BLACK);
+			y.putMarker(new Coordinates('D', 2), Yinsh.Color.WHITE);
+			y.moveRing(new Coordinates('D', 2), new Coordinates('I', 7), Yinsh.Color.BLACK);
 			assertTrue(false);
 			
 		}catch(Exception e){
