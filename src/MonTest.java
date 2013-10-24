@@ -9,16 +9,16 @@ public class MonTest extends TestCase{
 	public void test1()
 	{
 		Yinsh y = new Yinsh();
-		Yinsh.color col = y.current_color();
-		assertTrue((col == Yinsh.color.WHITE) || (col == Yinsh.color.BLACK));
+		Yinsh.Color col = y.currentColor();
+		assertTrue((col == Yinsh.Color.WHITE) || (col == Yinsh.Color.BLACK));
 	}
 	
 	public void testVerifAnneauPlace() throws Exception
 	{
-		//put_ring(String col, int line, Yinsh.color color)
+		//putRing(String col, int line, Yinsh.Color Color)
 		Yinsh y = new Yinsh();
-		y.put_ring('A',1,Yinsh.color.WHITE);
-		assertTrue(y.plateau[0][0] == Yinsh.color.WHITE);
+		y.putRing('A', 1, Yinsh.Color.WHITE);
+		assertTrue(y.m_plateau[0][0] == Yinsh.Color.WHITE);
 	}
 	
 	public void testNombreAnneaux() throws Exception
@@ -26,22 +26,22 @@ public class MonTest extends TestCase{
 		//On créé une nouvelle instance
 		Yinsh y = new Yinsh();
 		//On crée une variable qui va compter le nombre d'anneaux
-		int nb_anneaux=0;
+		int nbAnneaux=0;
 		
 		//On parcourt le tableau et on compte le nombre d'anneaux
-		for (int i = 0; i < y.plateau.length; i++) {
-			for (int j = 0; j < y.plateau[i].length; j++) {
-				if(y.plateau[i][j] != null) nb_anneaux++;
+		for (int i = 0; i < y.m_plateau.length; i++) {
+			for (int j = 0; j < y.m_plateau[i].length; j++) {
+				if(y.m_plateau[i][j] != null) nbAnneaux++;
 			}
 		}
 		
 		//On test si après l'initialisation il n'y a pas d'anneau placé
-		assertTrue(nb_anneaux == 0);
+		assertTrue(nbAnneaux == 0);
 		
 		//On place un anneau
-		y.put_ring('A',1,Yinsh.color.WHITE);
+		y.putRing('A', 1, Yinsh.Color.WHITE);
 		
-		assertTrue(y.plateau[0][0] == Yinsh.color.WHITE);
+		assertTrue(y.m_plateau[0][0] == Yinsh.Color.WHITE);
 	}
 	
 	
@@ -51,7 +51,7 @@ public class MonTest extends TestCase{
 		
 		try {
 			
-			y.put_ring('C',1,Yinsh.color.WHITE);
+			y.putRing('C', 1, Yinsh.Color.WHITE);
 			
 		} catch (Exception e) {
 			
@@ -68,8 +68,8 @@ public class MonTest extends TestCase{
 		
 		try {
 			
-			y.put_ring('B',3,Yinsh.color.WHITE);
-			y.put_ring('B',4,Yinsh.color.WHITE);
+			y.putRing('B', 3, Yinsh.Color.WHITE);
+			y.putRing('B', 4, Yinsh.Color.WHITE);
 			assertTrue(false);
 			
 		} catch (Exception e) {
@@ -86,8 +86,8 @@ public class MonTest extends TestCase{
 		
 		try {
 			
-			y.put_ring('B',3,Yinsh.color.WHITE);
-			y.put_ring('B',3,Yinsh.color.BLACK);
+			y.putRing('B', 3, Yinsh.Color.WHITE);
+			y.putRing('B', 3, Yinsh.Color.BLACK);
 			assertTrue(false);
 			
 		} catch (Exception e) {
@@ -102,16 +102,16 @@ public class MonTest extends TestCase{
 	{
 		Yinsh y = new Yinsh();
 		
-		y.put_ring('A', 3, Yinsh.color.BLACK);
-		y.put_ring('D', 1, Yinsh.color.WHITE);
-		y.put_ring('A', 7, Yinsh.color.BLACK);
-		y.put_ring('D', 3, Yinsh.color.WHITE);
-		y.put_ring('C', 1, Yinsh.color.BLACK);
-		y.put_ring('C', 3, Yinsh.color.WHITE);
-		y.put_ring('B', 4, Yinsh.color.BLACK);
-		y.put_ring('A', 5, Yinsh.color.WHITE);
-		y.put_ring('C', 2, Yinsh.color.BLACK);
-		y.put_ring('B', 3, Yinsh.color.WHITE);
+		y.putRing('A', 3, Yinsh.Color.BLACK);
+		y.putRing('D', 1, Yinsh.Color.WHITE);
+		y.putRing('A', 7, Yinsh.Color.BLACK);
+		y.putRing('D', 3, Yinsh.Color.WHITE);
+		y.putRing('C', 1, Yinsh.Color.BLACK);
+		y.putRing('C', 3, Yinsh.Color.WHITE);
+		y.putRing('B', 4, Yinsh.Color.BLACK);
+		y.putRing('A', 5, Yinsh.Color.WHITE);
+		y.putRing('C', 2, Yinsh.Color.BLACK);
+		y.putRing('B', 3, Yinsh.Color.WHITE);
 		
 		assertTrue((y.isInitialized()));
 		

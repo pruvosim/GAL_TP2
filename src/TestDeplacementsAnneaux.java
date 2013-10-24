@@ -11,18 +11,18 @@ public class TestDeplacementsAnneaux extends TestCase{
 
 		try{
 
-			y.put_ring('E', 4, Yinsh.color.BLACK);
+			y.putRing('E', 4, Yinsh.Color.BLACK);
 
-			y.plateauMarker[4][3] = Yinsh.color.BLACK;
-			y.plateauMarker[4][4] = Yinsh.color.BLACK;
-			y.plateauMarker[4][5] = Yinsh.color.WHITE;
-			y.plateauMarker[4][6] = Yinsh.color.WHITE;
-			y.plateauMarker[4][7] = Yinsh.color.BLACK;
-			y.plateauMarker[4][8] = Yinsh.color.WHITE;
+			y.m_plateauMarker[4][3] = Yinsh.Color.BLACK;
+			y.m_plateauMarker[4][4] = Yinsh.Color.BLACK;
+			y.m_plateauMarker[4][5] = Yinsh.Color.WHITE;
+			y.m_plateauMarker[4][6] = Yinsh.Color.WHITE;
+			y.m_plateauMarker[4][7] = Yinsh.Color.BLACK;
+			y.m_plateauMarker[4][8] = Yinsh.Color.WHITE;
 
-			y.move_ring('E', 4, 'E', 10);
+			y.moveRing('E', 4, 'E', 10);
 
-			assertTrue(y.plateauMarker[4][3] == Yinsh.color.BLACK && y.plateauMarker[4][4] == Yinsh.color.WHITE && y.plateauMarker[4][5] == Yinsh.color.BLACK && y.plateauMarker[4][6] == Yinsh.color.BLACK && y.plateauMarker[4][7] == Yinsh.color.WHITE && y.plateauMarker[4][8] == Yinsh.color.BLACK);
+			assertTrue(y.m_plateauMarker[4][3] == Yinsh.Color.BLACK && y.m_plateauMarker[4][4] == Yinsh.Color.WHITE && y.m_plateauMarker[4][5] == Yinsh.Color.BLACK && y.m_plateauMarker[4][6] == Yinsh.Color.BLACK && y.m_plateauMarker[4][7] == Yinsh.Color.WHITE && y.m_plateauMarker[4][8] == Yinsh.Color.BLACK);
 
 		}catch(Exception e){
 			assertTrue(false);
@@ -33,34 +33,34 @@ public class TestDeplacementsAnneaux extends TestCase{
 
 		Yinsh y = new Yinsh();
 
-		y.plateau[7][9] = Yinsh.color.BLACK;
-		y.plateauMarker[4][5] = Yinsh.color.BLACK;
-		y.plateauMarker[5][6] = Yinsh.color.BLACK;
-		y.plateauMarker[6][7] = Yinsh.color.BLACK;
-		y.plateauMarker[7][8] = Yinsh.color.BLACK;
-		y.plateauMarker[8][9] = Yinsh.color.BLACK;
+		y.m_plateau[7][9] = Yinsh.Color.BLACK;
+		y.m_plateauMarker[4][5] = Yinsh.Color.BLACK;
+		y.m_plateauMarker[5][6] = Yinsh.Color.BLACK;
+		y.m_plateauMarker[6][7] = Yinsh.Color.BLACK;
+		y.m_plateauMarker[7][8] = Yinsh.Color.BLACK;
+		y.m_plateauMarker[8][9] = Yinsh.Color.BLACK;
 
-		y.remove_row('E', 6, 'I', 10);
-		y.remove_ring('H', 10);
+		y.removeRow('E', 6, 'I', 10);
+		y.removeRing('H', 10);
 
-		assertTrue(y.nb_point_noir == 1);
+		assertTrue(y.m_nbPointNoir == 1);
 
 	}
 	
 	public void testDeplacementsPossibles()
 	{
 		Yinsh y = new Yinsh();
-		y.plateau[3][2] = Yinsh.color.BLACK;
-		y.plateau[1][3] = Yinsh.color.WHITE;
-		y.plateauMarker[4][2] = Yinsh.color.WHITE;
-		y.plateauMarker[4][8] = Yinsh.color.WHITE;
-		y.plateauMarker[4][7] = Yinsh.color.BLACK;
-		y.plateauMarker[4][6] = Yinsh.color.WHITE;
-		y.plateauMarker[4][5] = Yinsh.color.WHITE;
-		y.plateauMarker[4][4] = Yinsh.color.BLACK;
-		y.plateauMarker[2][3] = Yinsh.color.BLACK;
-		y.plateauMarker[7][6] = Yinsh.color.WHITE;
-		y.plateauMarker[8][7] = Yinsh.color.WHITE;
+		y.m_plateau[3][2] = Yinsh.Color.BLACK;
+		y.m_plateau[1][3] = Yinsh.Color.WHITE;
+		y.m_plateauMarker[4][2] = Yinsh.Color.WHITE;
+		y.m_plateauMarker[4][8] = Yinsh.Color.WHITE;
+		y.m_plateauMarker[4][7] = Yinsh.Color.BLACK;
+		y.m_plateauMarker[4][6] = Yinsh.Color.WHITE;
+		y.m_plateauMarker[4][5] = Yinsh.Color.WHITE;
+		y.m_plateauMarker[4][4] = Yinsh.Color.BLACK;
+		y.m_plateauMarker[2][3] = Yinsh.Color.BLACK;
+		y.m_plateauMarker[7][6] = Yinsh.Color.WHITE;
+		y.m_plateauMarker[8][7] = Yinsh.Color.WHITE;
 		
 		
 		assertTrue(y.deplacements('E',4) != null);
@@ -69,17 +69,17 @@ public class TestDeplacementsAnneaux extends TestCase{
 	public void testBlitz() throws Exception
 	{
 		Yinsh y = new Yinsh();
-		y.mode = Yinsh.BLITZ;
-		y.plateau[7][9] = Yinsh.color.BLACK;
-		y.plateauMarker[4][5] = Yinsh.color.BLACK;
-		y.plateauMarker[5][6] = Yinsh.color.BLACK;
-		y.plateauMarker[6][7] = Yinsh.color.BLACK;
-		y.plateauMarker[7][8] = Yinsh.color.BLACK;
-		y.plateauMarker[8][9] = Yinsh.color.BLACK;
-		y.remove_row('E', 6, 'I', 10);
-		y.remove_ring('H', 10);
+		y.mode = Yinsh.Type.BLITZ;
+		y.m_plateau[7][9] = Yinsh.Color.BLACK;
+		y.m_plateauMarker[4][5] = Yinsh.Color.BLACK;
+		y.m_plateauMarker[5][6] = Yinsh.Color.BLACK;
+		y.m_plateauMarker[6][7] = Yinsh.Color.BLACK;
+		y.m_plateauMarker[7][8] = Yinsh.Color.BLACK;
+		y.m_plateauMarker[8][9] = Yinsh.Color.BLACK;
+		y.removeRow('E', 6, 'I', 10);
+		y.removeRing('H', 10);
 		
-		assertTrue(y.win());
+		assertTrue(y.winnerIs());
 		
 	}
 	
@@ -88,16 +88,16 @@ public class TestDeplacementsAnneaux extends TestCase{
 		Yinsh y = new Yinsh();
 		
 		try{
-			y.plateauMarker[1][2] = Yinsh.color.BLACK;
-			y.plateauMarker[2][3] = Yinsh.color.BLACK;
-			y.plateauMarker[3][4] = Yinsh.color.BLACK;
-			y.plateauMarker[4][5] = Yinsh.color.BLACK;
-			y.plateauMarker[5][6] = Yinsh.color.BLACK;
-			y.plateauMarker[6][7] = Yinsh.color.BLACK;
-			y.plateauMarker[7][8] = Yinsh.color.BLACK;
-			y.plateauMarker[8][9] = Yinsh.color.BLACK;
+			y.m_plateauMarker[1][2] = Yinsh.Color.BLACK;
+			y.m_plateauMarker[2][3] = Yinsh.Color.BLACK;
+			y.m_plateauMarker[3][4] = Yinsh.Color.BLACK;
+			y.m_plateauMarker[4][5] = Yinsh.Color.BLACK;
+			y.m_plateauMarker[5][6] = Yinsh.Color.BLACK;
+			y.m_plateauMarker[6][7] = Yinsh.Color.BLACK;
+			y.m_plateauMarker[7][8] = Yinsh.Color.BLACK;
+			y.m_plateauMarker[8][9] = Yinsh.Color.BLACK;
 			
-			y.remove_row('B', 3, 'I', 10);
+			y.removeRow('B', 3, 'I', 10);
 			assertTrue(false);
 		}
 		catch(Exception e){
@@ -108,25 +108,25 @@ public class TestDeplacementsAnneaux extends TestCase{
 	public void testChoixAlignementARetirer() throws Exception
 	{
 		Yinsh y = new Yinsh();
-		y.joueur_en_cours = Yinsh.color.BLACK;
+		y.m_joueurEnCours = Yinsh.Color.BLACK;
 		
-		y.plateauMarker[1][2] = Yinsh.color.BLACK;
-		y.plateauMarker[2][3] = Yinsh.color.BLACK;
-		y.plateauMarker[3][4] = Yinsh.color.BLACK;
-		y.plateauMarker[5][6] = Yinsh.color.BLACK;
+		y.m_plateauMarker[1][2] = Yinsh.Color.BLACK;
+		y.m_plateauMarker[2][3] = Yinsh.Color.BLACK;
+		y.m_plateauMarker[3][4] = Yinsh.Color.BLACK;
+		y.m_plateauMarker[5][6] = Yinsh.Color.BLACK;
 		
-		y.plateauMarker[3][6] = Yinsh.color.BLACK;
-		y.plateauMarker[5][4] = Yinsh.color.BLACK;
-		y.plateauMarker[6][3] = Yinsh.color.BLACK;
-		y.plateauMarker[7][2] = Yinsh.color.BLACK;
+		y.m_plateauMarker[3][6] = Yinsh.Color.BLACK;
+		y.m_plateauMarker[5][4] = Yinsh.Color.BLACK;
+		y.m_plateauMarker[6][3] = Yinsh.Color.BLACK;
+		y.m_plateauMarker[7][2] = Yinsh.Color.BLACK;
 		
-		y.plateauMarker[4][4] = Yinsh.color.WHITE;
-		y.plateauMarker[4][3] = Yinsh.color.BLACK;
+		y.m_plateauMarker[4][4] = Yinsh.Color.WHITE;
+		y.m_plateauMarker[4][3] = Yinsh.Color.BLACK;
 		
-		y.plateau[4][3] = Yinsh.color.BLACK;
-		y.move_ring('D', 4, 'D', 6);
+		y.m_plateau[4][3] = Yinsh.Color.BLACK;
+		y.moveRing('D', 4, 'D', 6);
 		
-		y.plateauMarker[4][6] = Yinsh.color.BLACK;
+		y.m_plateauMarker[4][6] = Yinsh.Color.BLACK;
 		
 		y.alignementsPossibles('D', 6);
 		
@@ -138,17 +138,17 @@ public class TestDeplacementsAnneaux extends TestCase{
 	{
 		Yinsh y = new Yinsh();
 		
-		y.joueur_en_cours = Yinsh.color.WHITE;
+		y.m_joueurEnCours = Yinsh.Color.WHITE;
 		
-		y.plateau[4][5] = Yinsh.color.WHITE;
-		y.plateau[3][4] = Yinsh.color.WHITE;
-		y.plateau[2][3] = Yinsh.color.WHITE;
+		y.m_plateau[4][5] = Yinsh.Color.WHITE;
+		y.m_plateau[3][4] = Yinsh.Color.WHITE;
+		y.m_plateau[2][3] = Yinsh.Color.WHITE;
 		
-		y.remove_ring('E', 6);
-		y.remove_ring('D', 5);
-		y.remove_ring('C', 4);
+		y.removeRing('E', 6);
+		y.removeRing('D', 5);
+		y.removeRing('C', 4);
 		
-		assertTrue(y.white_rings_removed == 3);
+		assertTrue(y.m_whiteRingsRemoved == 3);
 		
 	}
 	
@@ -156,18 +156,18 @@ public class TestDeplacementsAnneaux extends TestCase{
 	{
 		Yinsh y = new Yinsh();
 		
-		y.marqueurs_blancs = 40;
-		y.marqueurs_noirs = 9;
-		y.marqueurs_utilises = 49;
+		y.m_marqueursBlancs = 40;
+		y.m_marqueursNoirs = 9;
+		y.m_marqueursUtilises = 49;
 		
-		y.derniere_couleur_jouee = Yinsh.color.WHITE;
+		y.m_derniereCouleurJouee = Yinsh.Color.WHITE;
 		
-		y.put_ring('A', 5, Yinsh.color.BLACK);
-		y.put_ring('B', 5, Yinsh.color.WHITE);
-		y.put_ring('A', 1, Yinsh.color.BLACK);
-		y.put_marker('A', 5, Yinsh.color.BLACK);
-		y.put_marker('A', 1, Yinsh.color.BLACK);
+		y.putRing('A', 5, Yinsh.Color.BLACK);
+		y.putRing('B', 5, Yinsh.Color.WHITE);
+		y.putRing('A', 1, Yinsh.Color.BLACK);
+		y.putMarker('A', 5, Yinsh.Color.BLACK);
+		y.putMarker('A', 1, Yinsh.Color.BLACK);
 		
-		assertTrue(y.win_limite_anneaux());
+		assertTrue(y.markerLimitWinnerIs());
 	}
 }

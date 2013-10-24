@@ -10,10 +10,10 @@ public class TestMarkers extends TestCase{
 		Yinsh y = new Yinsh();
 		
 		//On place cet anneau selon le schema
-		y.put_ring('D', 2, Yinsh.color.BLACK);
+		y.putRing('D', 2, Yinsh.Color.BLACK);
 		
-		y.put_marker('D',2,Yinsh.color.BLACK);
-		assertTrue(y.plateauMarker[3][1] == Yinsh.color.BLACK);
+		y.putMarker('D', 2, Yinsh.Color.BLACK);
+		assertTrue(y.m_plateauMarker[3][1] == Yinsh.Color.BLACK);
 	}
 	
 	
@@ -21,10 +21,10 @@ public class TestMarkers extends TestCase{
 	{
 		Yinsh y = new Yinsh();
 		
-		y.put_ring('D', 2, Yinsh.color.BLACK);
-		y.put_marker('D',2,Yinsh.color.BLACK);
-		y.move_ring('D',2,'D',5);
-		assertTrue(y.plateau[3][4] == Yinsh.color.BLACK);
+		y.putRing('D', 2, Yinsh.Color.BLACK);
+		y.putMarker('D', 2, Yinsh.Color.BLACK);
+		y.moveRing('D', 2, 'D', 5);
+		assertTrue(y.m_plateau[3][4] == Yinsh.Color.BLACK);
 	}
 	
 	public void testMauvaisMarqueur()
@@ -34,8 +34,8 @@ public class TestMarkers extends TestCase{
 		
 		try{
 			
-			y.put_ring('D', 2, Yinsh.color.BLACK);
-			y.put_marker('D',2,Yinsh.color.WHITE);
+			y.putRing('D', 2, Yinsh.Color.BLACK);
+			y.putMarker('D', 2, Yinsh.Color.WHITE);
 			assertTrue(false);
 			
 		}catch(Exception e){
@@ -44,7 +44,7 @@ public class TestMarkers extends TestCase{
 		
 		try{
 			
-			y.put_marker('D', 3, Yinsh.color.BLACK);
+			y.putMarker('D', 3, Yinsh.Color.BLACK);
 			assertTrue(false);
 			
 		}catch(Exception e){
@@ -61,9 +61,9 @@ public class TestMarkers extends TestCase{
 		
 		try{
 			
-			y.put_ring('D', 2, Yinsh.color.BLACK);
-			y.put_marker('D',2,Yinsh.color.WHITE);
-			y.move_ring('D',2,'D',6);
+			y.putRing('D', 2, Yinsh.Color.BLACK);
+			y.putMarker('D', 2, Yinsh.Color.WHITE);
+			y.moveRing('D', 2, 'D', 6);
 			assertTrue(false);
 			
 		}catch(Exception e){
@@ -79,9 +79,9 @@ public class TestMarkers extends TestCase{
 		
 		try{
 			
-			y.put_ring('D', 2, Yinsh.color.BLACK);
-			y.put_marker('D',2,Yinsh.color.WHITE);
-			y.move_ring('D',2,'I',7);
+			y.putRing('D', 2, Yinsh.Color.BLACK);
+			y.putMarker('D', 2, Yinsh.Color.WHITE);
+			y.moveRing('D', 2, 'I', 7);
 			assertTrue(false);
 			
 		}catch(Exception e){
